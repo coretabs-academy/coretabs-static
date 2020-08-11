@@ -1,0 +1,29 @@
+@import "resets/normalize.scss";
+@import "resets/reset.local.scss";
+@import "resets/typography.scss";
+
+// Variables
+:root {
+    --primary-color: hsl(268, 78%, 58%);
+    --primary-color-2: #2D43E7;
+    --light-gray-color: #fafafa;
+    --medium-gray-color: #C8C8C8;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+ul {
+   margin: 0; 
+}
+
+p { font-size: 1em; }
+
+button {
+    font-weight: bold;
+}
+
+// Utility Classes
+.text-white { color: white; }
