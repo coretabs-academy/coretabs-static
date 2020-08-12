@@ -119,6 +119,7 @@
     width: auto;
     position: relative;
     transition: all 200ms ease-in-out;
+    overflow: hidden;
     
     &:hover::after {
         content: '';
@@ -144,7 +145,7 @@
     }
 
     &--secondary {
-        border: 1px solid hsla(0,0%,100%,.5)!important;
+        border: 1px solid hsla(0,0%,100%,.5);
     }
 
     &--white {

@@ -489,7 +489,8 @@ button {
   text-decoration: none;
   width: auto;
   position: relative;
-  transition: all 200ms ease-in-out; }
+  transition: all 200ms ease-in-out;
+  overflow: hidden; }
   .btn:hover::after {
     content: '';
     display: block;
@@ -508,7 +509,7 @@ button {
     .btn--primary:hover {
       box-shadow: none; }
   .btn--secondary {
-    border: 1px solid rgba(255, 255, 255, 0.5) !important; }
+    border: 1px solid rgba(255, 255, 255, 0.5); }
   .btn--white {
     border-color: white; }
 
@@ -653,28 +654,56 @@ button {
     display: none; }
   #hero .overlay {
     background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
     z-index: 10;
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; }
-    #hero .overlay a {
-      color: white;
-      text-decoration: none; }
+    @media screen and (min-width: 961px) {
+      #hero .overlay .nav__list {
+        flex-direction: column; } }
+    #hero .overlay::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(44, 23, 106, 0.3);
+      z-index: -10; }
+    #hero .overlay .nav__list {
+      width: 100%;
+      padding: 0; }
+    #hero .overlay .nav__item {
+      font-size: 1.25em;
+      height: 3em;
+      align-items: center;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      transition: background 200ms ease-in-out;
+      margin: 0 1.5em 1.5em; }
+      #hero .overlay .nav__item a {
+        color: white;
+        text-decoration: none;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%; }
+        #hero .overlay .nav__item a:not(.btn):hover {
+          background-color: rgba(255, 255, 255, 0.25); }
+        #hero .overlay .nav__item a.btn {
+          width: fit-content; }
   #hero .content-box {
     margin: 4.5em 1.5em 0;
     padding: 2.5em 2.5em 16em;
@@ -695,15 +724,34 @@ button {
       left: 0; }
   #hero .nav {
     width: 100%;
-    height: 5em; }
+    height: 5em;
+    position: fixed;
+    z-index: 10; }
+    #hero .nav-transparent {
+      background-color: transparent; }
+    #hero .nav-colored {
+      background-color: white;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16); }
+      #hero .nav-colored .nav__list .nav__item a {
+        color: #425468; }
+      #hero .nav-colored .nav__list .nav__item a.btn {
+        border-color: var(--primary-color);
+        color: var(--primary-color-2); }
     #hero .nav__list {
       list-style: none;
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
       z-index: 20; }
+      @media screen and (max-width: 960px) {
+        #hero .nav__list {
+          padding: 0 1.5em; } }
+      #hero .nav__list.overlay-mode .nav__item {
+        display: none; }
       #hero .nav__list.active .nav__item {
-        display: block; }
+        display: flex;
+        width: 100%; }
       #hero .nav__list .logo {
         margin: 0.5em;
         margin-inline-start: auto;
@@ -713,6 +761,12 @@ button {
       #hero .nav__list .toggle {
         order: 0;
         z-index: 20; }
+        #hero .nav__list .toggle svg {
+          width: 2em;
+          height: 2em;
+          fill: white; }
+        #hero .nav__list .toggle--on-bg svg {
+          fill: var(--primary-color); }
       #hero .nav__list .nav__item {
         order: 1;
         width: 100%;
@@ -723,7 +777,7 @@ button {
         #hero .nav__list .nav__item a {
           color: white;
           text-decoration-line: none; }
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 769px) {
         #hero .nav__list {
           justify-content: center; }
           #hero .nav__list .logo {
@@ -736,7 +790,7 @@ button {
             flex: 1;
             text-align: right;
             order: 0; } }
-      @media screen and (min-width: 960px) {
+      @media screen and (min-width: 961px) {
         #hero .nav__list {
           align-items: center;
           justify-content: space-between;
