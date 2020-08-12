@@ -42,7 +42,7 @@
 
     .content-box {
         margin: 4.5em 1.5em 0;
-        padding-bottom: 16em;
+        padding: 2.5em 2.5em 16em;
         margin-bottom: 12em;
      
         position: relative;
@@ -56,15 +56,15 @@
         }
 
         @media screen and (min-width: 961px ){
-            padding-top: 5.5em;
-            padding-bottom: 32em;
+            padding: 5.5em 5.5em 32em;
             margin-bottom: 20em;
         }
 
         .academy-preview {
             position: absolute;
             width: 100%;
-            height: 100%;;
+            height: 100%;
+            left: 0;
         }
     }
 
@@ -225,7 +225,6 @@
                 width: 90%;
                 height: 90%;
             }
-            
         }
 
         &__item {
@@ -240,9 +239,15 @@
 
 // KCamp Section
 #kcamps {
-    &-logo {
+    .kcamps-logo {
         display: flex;
-        margin: auto;
+        justify-content: center;
+        color: #9042E8;
+
+        img {
+            margin-inline-start: 0.5em;
+            width: 1.5em;
+        }
     }    
 
     .kcamps-cards {
