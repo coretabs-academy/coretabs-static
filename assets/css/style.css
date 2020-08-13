@@ -824,6 +824,8 @@ button {
             position: relative;
             display: block;
             width: auto; }
+            #hero .nav__list .nav__item a:not(.btn) {
+              height: 40px; }
           #hero .nav__list .toggle {
             display: none; }
           #hero .nav__list .logo {

@@ -264,6 +264,12 @@
                     position: relative;
                     display: block;
                     width: auto ;
+
+                    a {
+                        &:not(.btn) {
+                            height: 40px;
+                        }
+                    }
                 }
 
                 .toggle { display: none;}
