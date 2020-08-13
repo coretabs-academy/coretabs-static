@@ -12,7 +12,7 @@
 
     &__item {
         list-style: none;
-        margin-inline-end: 1.5em;
+        margin-inline-end: 0.625em;
     }
 
     a {
@@ -149,7 +149,12 @@
     }
 
     &--white {
-        border-color: white;
+        border-color: hsla(100,0%,100%,.5);
+    }
+
+    &--sm {
+        padding: 0 1em;
+        height: 40px;
     }
 }
 
@@ -265,7 +270,7 @@
     }
 
     &__top {
-        padding: 3em 0 1.5em;
+        padding-top: 2em;
         flex-direction: column;
 
         @media screen and (min-width: 961px) {
@@ -274,6 +279,9 @@
 
         .nav {
             order: 2;
+
+            &__list { padding: 0; }
+            &__item { margin-inline-end: 1.5em; }
         }
         
         .main-footer__logo {
@@ -340,7 +348,7 @@
 
     &__bottom {
        border-top: 1px solid var(--medium-gray-color);
-       padding: 3em 0;
+       padding-top: 3em;
 
         .social-links {
             @media screen and (max-width: 600px) {
