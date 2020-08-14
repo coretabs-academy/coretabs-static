@@ -5,12 +5,30 @@ var mainNavList = document.querySelector('#main-header .nav .nav__list');
 var overlay = document.querySelector('.no-overlay');
 var mainNavBtn = document.querySelectorAll('.main-nav-btn');
 
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+
 // Check for user if he's logged in
 window.addEventListener('load', (event) => {
   
   // theres's two versions of button, one in .overlay element and the other in #main-header
   [].forEach.call(mainNavBtn, function(child) {
-    if (Cookies.get('sessionid')) {
+    if (getCookie('isLoggedIn')) {
       child.setAttribute('href', "http://coretabs.net/classroom/");
       child.innerText = 'الصف الدراسي';  
     } else {
@@ -23,7 +41,6 @@ window.addEventListener('load', (event) => {
 
 // Changing Navbar on Scroll
 window.onscroll = function () {
-    console.log(document.documentElement.scrollTop);
     if ((window.pageYOffset || document.documentElement.scrollTop >= 200) && !overlay.classList.contains("overlay")) {
       mainNav.classList.add("nav-colored");
       mainNav.classList.remove("nav-transparent");
@@ -39,7 +56,6 @@ window.onscroll = function () {
 // Hamburger Menu
 function toggleMenu() {
     if (navOverlayed.classList.contains("active")) {
-        console.log('Here')
         if (window.innerWidth > 960) {
           toggle.style.display = "none";
         }
