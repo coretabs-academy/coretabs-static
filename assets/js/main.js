@@ -3,6 +3,23 @@ var navOverlayed = document.querySelector('.no-overlay .nav__list');
 var mainNav = document.querySelector('#main-header .nav');
 var mainNavList = document.querySelector('#main-header .nav .nav__list');
 var overlay = document.querySelector('.no-overlay');
+var mainNavBtn = document.querySelectorAll('.main-nav-btn');
+
+// Check for user if he's logged in
+window.addEventListener('load', (event) => {
+  
+  // theres's two versions of button, one in .overlay element and the other in #main-header
+  [].forEach.call(mainNavBtn, function(child) {
+    if (Cookies.get('sessionid')) {
+      child.setAttribute('href', "http://coretabs.net/classroom/");
+      child.innerText = 'الصف الدراسي';  
+    } else {
+      child.setAttribute('href', "http://coretabs.net/signin/");
+      child.innerText = 'تسجيل الدخول';
+    }
+  });
+});
+
 
 // Changing Navbar on Scroll
 window.onscroll = function () {
