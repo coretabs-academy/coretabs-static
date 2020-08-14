@@ -299,8 +299,12 @@
         background: radial-gradient(50% 50%, rgba(234, 214, 255, 0.25), transparent);
         flex-wrap: wrap;
 
+        @media screen and (min-width: 769px) {
+            .testimonial { flex: 0 0 46%; }
+        }
+
         @media screen and (min-width: 961px) {
-            .testimonial { flex: 0 0 480px; }
+            .testimonial { flex: 0 0 30%; }
         }
 
         .testimonial {

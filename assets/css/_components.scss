@@ -78,10 +78,13 @@
         #{$root}__img {
             border: 4px solid #D5C7FF;
             position: absolute;
-            bottom: 3.5em;
+            bottom: 4.5em;
         }
 
         #{$root}__name {
+            display: inline-block;
+            margin: 1.5em 0;
+            text-decoration: none;
             color: var(--primary-color);
             font-weight: bold;
         }
@@ -281,7 +284,15 @@
             order: 2;
 
             &__list { padding: 0; }
-            &__item { margin-inline-end: 1.5em; }
+            &__item {
+                margin-inline-end: 1.5em;
+
+                a,
+                a:hover,
+                a:visited {
+                    color: var(--primary-color-2);    
+                }
+            }
         }
         
         .main-footer__logo {
