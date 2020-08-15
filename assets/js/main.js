@@ -23,16 +23,32 @@ function getCookie(cname) {
 }
 
 
+// Change App Domain & Forums Href based on whether we're on Dev or Production environment
+var appDomain, forumHref;
+
+if (window.location.host === 'spa-dev.coretabs.net') {
+  appDomain = 'https://spa-dev.coretabs.net';
+  forumHref = 'https://discourse.coretabs.net';
+} else {
+  appDomain = 'https://coretabs.net';
+  forumHref = 'https://forums.coretabs.net';
+}
+
 // Check for user if he's logged in
 window.addEventListener('load', (event) => {
   
+  // Change Forums & Main Nav Button's Href based on whether we're on Dev or Production environment
+  [].forEach.call(forumUrl, function(child) {
+    child.setAttribute('href', forumHref);
+  });
+
   // theres's two versions of button, one in .overlay element and the other in #main-header
   [].forEach.call(mainNavBtn, function(child) {
     if (getCookie('isLoggedIn')) {
-      child.setAttribute('href', "http://coretabs.net/classroom/");
+      child.setAttribute('href', `${appDomain}/classroom/`);
       child.innerText = 'الصف الدراسي';  
     } else {
-      child.setAttribute('href', "http://coretabs.net/signin/");
+      child.setAttribute('href', `${appDomain}/signin/`);
       child.innerText = 'تسجيل الدخول';
     }
   });
