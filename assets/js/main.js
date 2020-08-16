@@ -4,6 +4,7 @@ var mainNav = document.querySelector('#main-header .nav');
 var mainNavList = document.querySelector('#main-header .nav .nav__list');
 var overlay = document.querySelector('.no-overlay');
 var mainNavBtn = document.querySelectorAll('.main-nav-btn');
+var forumUrl = document.querySelectorAll('.forum-url');
 
 
 function getCookie(cname) {
@@ -34,7 +35,6 @@ if (window.location.host === 'spa-dev.coretabs.net') {
   forumHref = 'https://forums.coretabs.net';
 }
 
-// Check for user if he's logged in
 window.addEventListener('load', (event) => {
   
   // Change Forums & Main Nav Button's Href based on whether we're on Dev or Production environment
@@ -42,6 +42,8 @@ window.addEventListener('load', (event) => {
     child.setAttribute('href', forumHref);
   });
 
+  
+  // Check for user if he's logged in and change Main nav button accordingly
   // theres's two versions of button, one in .overlay element and the other in #main-header
   [].forEach.call(mainNavBtn, function(child) {
     if (getCookie('isLoggedIn')) {
