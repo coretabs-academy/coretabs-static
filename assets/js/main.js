@@ -58,18 +58,18 @@ window.addEventListener('load', (event) => {
 
 
 // Changing Navbar on Scroll
-window.onscroll = function () {
-    if ((window.pageYOffset || document.documentElement.scrollTop >= 200) && !overlay.classList.contains("overlay")) {
-      mainNav.classList.add("nav-colored");
-      mainNav.classList.remove("nav-transparent");
-      toggle.classList.add("toggle--on-bg");
-    } else {
+// window.onscroll = function () {
+//     if ((window.pageYOffset || document.documentElement.scrollTop >= 200) && !overlay.classList.contains("overlay")) {
+//       mainNav.classList.add("nav-colored");
+//       mainNav.classList.remove("nav-transparent");
+//       toggle.classList.add("toggle--on-bg");
+//     } else {
 
-      mainNav.classList.add("nav-transparent");
-      mainNav.classList.remove("nav-colored");
-      toggle.classList.remove("toggle--on-bg");
-    }
-};
+//       mainNav.classList.add("nav-transparent");
+//       mainNav.classList.remove("nav-colored");
+//       toggle.classList.remove("toggle--on-bg");
+//     }
+// };
 
 // Hamburger Menu
 function toggleMenu() {

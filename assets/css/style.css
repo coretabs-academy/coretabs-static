@@ -759,7 +759,6 @@ button {
     #hero .nav-transparent {
       background-color: transparent; }
     #hero .nav-colored {
-      position: fixed;
       background-color: white;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.16);
       height: 60px; }
@@ -901,8 +900,7 @@ button {
           width: 90%;
           height: 90%; } }
     #coretabs-features .comparing-graphic__item > img {
-      width: 100%;
-     }
+      width: 100%; }
 
 #kcamps .kcamps-logo {
   display: flex;
